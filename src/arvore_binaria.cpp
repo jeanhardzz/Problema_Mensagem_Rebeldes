@@ -113,11 +113,11 @@ void ArvoreBinaria::PreOrdem(TipoNo *p){
 int ArvoreBinaria::BuscaNumeroPreOrder(TipoChave palavra){
     this->count=0;
     this->achei=0;
-    ContaNumerosPreOrder(raiz,palavra);
+    BuscaNumeroPreOrderRecursivo(raiz,palavra);
     return count;
 }
 
-void ArvoreBinaria::ContaNumerosPreOrder(TipoNo *p,TipoChave palavra){
+void ArvoreBinaria::BuscaNumeroPreOrderRecursivo(TipoNo *p,TipoChave palavra){
     //visita o no, depois os filhos da esquerda e depois os da direita             
     if(p!=0){
         count++;
@@ -125,11 +125,30 @@ void ArvoreBinaria::ContaNumerosPreOrder(TipoNo *p,TipoChave palavra){
             this->achei=1;           
         }
         if(achei==0)
-            ContaNumerosPreOrder(p->esq,palavra);
+            BuscaNumeroPreOrderRecursivo(p->esq,palavra);
         if(achei==0)
-            ContaNumerosPreOrder(p->dir,palavra);
-    }
-    
-
+            BuscaNumeroPreOrderRecursivo(p->dir,palavra);
+    }    
 }
+
+std::string ArvoreBinaria::BuscaPalavraPreOrder(int codigo){
+    this->count=codigo;
+    this->achei=0;
+    BuscaPalavraPreOrderRecursivo(raiz,codigo);
+    return aux.GetChave();
+}
+
+void ArvoreBinaria::BuscaPalavraPreOrderRecursivo(TipoNo *p,int codigo){
+    //visita o no, depois os filhos da esquerda e depois os da direita
+    if(p!=0){
+        count--;
+        if(count==0){
+            aux = p->item;           
+        }
+        if(count!=0)
+            BuscaPalavraPreOrderRecursivo(p->esq,codigo);
+        if(count!=0)
+            BuscaPalavraPreOrderRecursivo(p->dir,codigo);
+    } 
+} 
 

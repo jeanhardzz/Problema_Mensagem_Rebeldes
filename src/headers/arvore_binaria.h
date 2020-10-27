@@ -15,6 +15,7 @@ class ArvoreBinaria{
         void Limpa();
         void ImprimePreOrder();
         int BuscaNumeroPreOrder(TipoChave palavra);
+        std::string BuscaPalavraPreOrder(int codigo);
     private:
         void InsereRecursivo(TipoNo* &p, TipoItem item);//
         void ApagaRecursivo(TipoNo* p);
@@ -22,9 +23,11 @@ class ArvoreBinaria{
         void RemoveRecursivo(TipoNo* &p, TipoChave chave);//
         void Antecessor(TipoNo* q, TipoNo* &r);//        
         void PreOrdem(TipoNo* p); 
-        void ContaNumerosPreOrder(TipoNo *p,TipoChave palavra);       
+        void BuscaNumeroPreOrderRecursivo(TipoNo *p,TipoChave palavra);       
+        void BuscaPalavraPreOrderRecursivo(TipoNo *p,int codigo); 
         TipoNo *raiz;
         int count,achei;
+        TipoItem aux;
 };
 
 #endif

@@ -32,14 +32,26 @@ int main(){
             palavras.push_back(palavra);
         }
         std::string codigo = rebelde.Encripta(n_palavras,palavras);
-        std::cout<<"\n"<<codigo<<std::endl;
+        std::cout<<codigo<<std::endl;
         //std::cout<<"opcao e"<<std::endl;
     }
     if(operacao=='d'){ //desencripitar
-        std::cout<<"opcao d"<<std::endl;
+        int n_codigos;
+        std::vector<int> codigos;
+        std::cin>>n_codigos;
+         
+        int codigo;
+        for(int i=0;i<n_codigos;i++){            
+            std::cin>>codigo;
+            codigos.push_back(codigo);
+        }
+        std::string mensagem = rebelde.Desencripta(n_codigos,codigos);
+        std::cout<<mensagem<<std::endl;
+        //std::cout<<"opcao d"<<std::endl;
     }
     if(operacao=='a'){ //mostra em preorder      
         rebelde.ImprimePreOrder();
+        std::cout<<"\n";
         //std::cout<<"\nopcao a"<<std::endl;
     }    
   }

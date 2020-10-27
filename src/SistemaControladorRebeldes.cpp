@@ -34,3 +34,12 @@ std::string SistemaControladorRebeldes::Encripta(int n_palavras, std::vector<Tip
     }
     return codigo;
 }
+
+std::string SistemaControladorRebeldes::Desencripta(int n_codigos, std::vector<int> codigos){
+    std::string mensagem="";
+    for(int i=0;i<n_codigos;i++){        
+        mensagem += arvore.BuscaPalavraPreOrder(codigos[i]);
+        mensagem += " ";
+    }
+    return mensagem;
+}
